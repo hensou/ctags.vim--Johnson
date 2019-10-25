@@ -217,9 +217,9 @@ if has('perl')
 	close (CTAGS);
 
 	$lines .= $max_num;
-	$lines .= $max_num;
+	$tags  = quotemeta($tags);
 
-	VIM::DoCommand("let b:tags = '$tags'");
+	VIM::DoCommand(qq(let b:tags = "$tags"));
 	VIM::DoCommand("let b:length = $length");
 	VIM::DoCommand("let b:lines = '$lines'");
 PERL_EOF
